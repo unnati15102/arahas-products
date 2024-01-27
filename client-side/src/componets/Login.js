@@ -1,7 +1,12 @@
 import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom'
+// import Dashboard from "./Dashboard";
 import "./mix.css";
+
+
 const Login = () => {
-    const [passShow,setPassShow]=useState(false);
+  const [passShow, setPassShow] = useState(false);
+  let navigate = useNavigate();
   return (
     <>
       <section>
@@ -30,11 +35,13 @@ const Login = () => {
                   id="password"
                   placeholder="Enter Your password"
                 />
-                <div className="showpass" onClick={()=> setPassShow(!passShow)}>{!passShow ? "Show" :"Hide"}</div>
+                <div className="showpass" onClick={() => setPassShow(!passShow)}>{!passShow ? "Show" : "Hide"}</div>
               </div>
             </div>
 
-            <button className="btn">Login</button>
+            <button className="btn" onClick={() => {
+              navigate("/dashboard")
+            }}>Login</button>
             <p>Don't have an Account? Sign Up </p>
           </form>
         </div>
